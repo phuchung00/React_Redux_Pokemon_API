@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-
+import './style.css'
 export default class PokemonURL extends Component {
   state = {
-    isLoading :false
+    isLoading: false
   }
   getURL = (url) => {
     const { getURL } = this.props
@@ -11,32 +11,33 @@ export default class PokemonURL extends Component {
   link = () => {
     const { url } = this.props
     fetch(url)
-    .then(res => res.json())
-    .then(json => {
-      this.getURL(json)
-      this.setState({
-        isLoading:true
-      })
-    }).catch(e => { console.log(e) })
+      .then(res => res.json())
+      .then(json => {
+        this.getURL(json)
+        this.setState({
+          isLoading: true
+        })
+      }).catch(e => { console.log(e) })
   }
-  componentDidMount(){
+  componentDidMount() {
     this.link()
   }
   render() {
-    const { url ,url2} = this.props
+    const { url, url2 } = this.props
     return (
       <div>
-        {console.log(url2)}
         <h3>Pokemon Information</h3>
-        <div>
-        Name: {url2.name}
-      </div>
-      <div>
-        Height: {url2.height}
-      </div>
-      <div>
-        Weight: {url2.weight}
-      </div>
+        <div className="infor">
+          <div>
+            Name: {url2.name}
+          </div>
+          <div>
+            Height: {url2.height}
+          </div>
+          <div>
+            Weight: {url2.weight}
+          </div>
+        </div>
       </div>
     )
   }
