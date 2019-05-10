@@ -1,4 +1,4 @@
-const POKEMON_URL = 'action/POKEMON'
+const POKEMON_URL = 'action/POKEMON_URL'
 const initialState={
   url:[]
 }
@@ -16,7 +16,6 @@ export function handleURLReducer (state= initialState,action){
       const { payload } = action
       const newState = {...state}
       newState.url = payload.url
-      console.log("Sda")
       return newState
     }
     default:return state

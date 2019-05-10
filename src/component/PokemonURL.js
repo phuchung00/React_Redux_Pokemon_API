@@ -5,8 +5,8 @@ export default class PokemonURL extends Component {
     isLoading :false
   }
   getURL = (url) => {
-    const { getUrl } = this.props
-    getUrl(url)
+    const { getURL } = this.props
+    getURL(url);
   }
   link = () => {
     const { url } = this.props
@@ -19,15 +19,24 @@ export default class PokemonURL extends Component {
       })
     }).catch(e => { console.log(e) })
   }
-  
+  componentDidMount(){
+    this.link()
+  }
   render() {
     const { url ,url2} = this.props
     return (
       <div>
-        {/* {url2.map((e,i)=>{
-            return e.url
-        })} */}
         {console.log(url2)}
+        <h3>Pokemon Information</h3>
+        <div>
+        Name: {url2.name}
+      </div>
+      <div>
+        Height: {url2.height}
+      </div>
+      <div>
+        Weight: {url2.weight}
+      </div>
       </div>
     )
   }
