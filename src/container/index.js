@@ -3,12 +3,15 @@ import Pokemon from '../component/Pokemon'
 import { changeAction } from '../action/OpenModal'
 import { getValueAction } from '../action/OpenItem'
 import { getURLAction } from '../action/PokemonURL'
+import { getInputAction } from '../action/ValueInput'
 
 const mapStateToProps = (state) => {
-  const { isChangeReducer, handleItemReducer, handleURLReducer } = state
+  const { isChangeReducer, handleItemReducer, handleURLReducer, handleValueReducer } = state
   return {
     isChange: isChangeReducer,
     item: handleItemReducer.item,
+    values: handleValueReducer.value,
+    lavue: handleValueReducer.lavue,
     url: handleURLReducer.url
   }
 }
@@ -25,7 +28,11 @@ const mapDispatchToProps = (dispatch) => {
     getURL: function (url) {
       const action = getURLAction(url)
       dispatch(action)
-    }
+    },
+    getValue: function (value){
+      const action = getInputAction(value)
+      dispatch(action)
+    },
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Pokemon)
