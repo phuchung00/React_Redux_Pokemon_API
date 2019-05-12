@@ -55,7 +55,8 @@ export default class pokemon extends Component {
         newArr.push(e.name)
       }
     })
-    console.log(newArr)
+    // console.log(newArr)
+    return <div>{newArr}<br/></div>
     // if()
   }
   componentDidMount() {
@@ -87,6 +88,7 @@ export default class pokemon extends Component {
             <p>Search Pokemon</p>
             <input onChange={this.search} ref="txt" />
             <button onClick={this.type} ></button>
+            {this.type()}
           </div>
           {item.results.map((e, i) => {
             return (<div id="myBtn" onClick={this.change}>

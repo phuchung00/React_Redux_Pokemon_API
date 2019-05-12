@@ -29,6 +29,7 @@ export default class PokemonURL extends Component {
         <h3>Pokemon Information</h3>
         <div className="infor">
           <div>
+      {console.log(url2)}
             Name: {url2.name}
           </div>
           <div>
