@@ -1,6 +1,7 @@
 const GET_INPUT = "action/GET_INPUT"
 const initialState = {
   value:'',
+  lavue:[]
 }
 export const getInputAction = (value) => {
   return {

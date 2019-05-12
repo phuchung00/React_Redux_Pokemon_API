@@ -45,25 +45,24 @@ export default class pokemon extends Component {
 
   }
   type = () => {
-    const { item = [], values } = this.props
-    // console.log(lavue)
+    const { item = [], values, lavue  } = this.props
     let newArr = []
+    let arr = []
     item.results.map((e, i) => {
       let n = e.name
       let m = n.includes(values)
       if (m === true) {
         newArr.push(e.name)
+        lavue.unshift(e.name)
       }
     })
-    newArr.forEach(e => {
-      console.log(e)
-      return <div>|{newArr}|</div>
+    arr = newArr.map(e => {
+      return <div>
+        |{e}|
+        </div>
     })
-    console.log(newArr)
-    // newArr.filter(e => {
-    //   return newArr !== e.name
-    // })
-    return <div>{newArr}|||||||</div>
+    console.log(lavue)
+    return <div>{arr}</div>
 
   }
   componentDidMount() {
@@ -94,12 +93,11 @@ export default class pokemon extends Component {
           <div>
             <p>Search Pokemon</p>
             <input onChange={this.search} ref="txt" placeholder="type pokemon name" />
-            <button onClick={this.type} ></button>
+            <button onClick={this.type} >Search</button>
             {this.type()}
           </div>
           {item.results.map((e, i) => {
             return (<div id="myBtn" onClick={this.change}>
-              {e.name}
               <div className={nam}>
                 <div className="modal-content">
                   <span className="close">&times;</span>
