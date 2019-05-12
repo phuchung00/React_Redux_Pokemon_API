@@ -19,7 +19,7 @@ export default class PokemonURL extends Component {
         })
       }).catch(e => { console.log(e) })
   }
-  componentDidMount() {
+  componentWillMount() {
     this.link()
   }
   render() {
@@ -29,7 +29,7 @@ export default class PokemonURL extends Component {
         <h3>Pokemon Information</h3>
         <div className="infor">
           <div>
-      {console.log(url2)}
+      {/* {console.log(url2.name)} */}
             Name: {url2.name}
           </div>
           <div>

@@ -1,7 +1,6 @@
 const GET_INPUT = "action/GET_INPUT"
 const initialState = {
   value:'',
-  lavue: []
 }
 export const getInputAction = (value) => {
   return {
@@ -17,7 +16,6 @@ export function handleValueReducer ( state = initialState, action ) {
       const newState = { ...state }
       const { payload } = action
       newState.value = payload.value
-      
       return newState
     }
     default: return state

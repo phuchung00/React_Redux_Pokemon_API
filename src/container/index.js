@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
     isChange: isChangeReducer,
     item: handleItemReducer.item,
     values: handleValueReducer.value,
-    lavue: handleValueReducer.lavue,
     url: handleURLReducer.url
   }
 }

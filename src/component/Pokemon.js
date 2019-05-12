@@ -45,7 +45,7 @@ export default class pokemon extends Component {
 
   }
   type = () => {
-    const { item = [], values, lavue } = this.props
+    const { item = [], values } = this.props
     // console.log(lavue)
     let newArr = []
     item.results.map((e, i) => {
@@ -55,9 +55,16 @@ export default class pokemon extends Component {
         newArr.push(e.name)
       }
     })
-    // console.log(newArr)
-    return <div>{newArr}<br/></div>
-    // if()
+    newArr.forEach(e => {
+      console.log(e)
+      return <div>|{newArr}|</div>
+    })
+    console.log(newArr)
+    // newArr.filter(e => {
+    //   return newArr !== e.name
+    // })
+    return <div>{newArr}|||||||</div>
+
   }
   componentDidMount() {
     this.pokemon('https://pokeapi.co/api/v2/pokemon')
@@ -86,7 +93,7 @@ export default class pokemon extends Component {
           <h2>PokeApi</h2>
           <div>
             <p>Search Pokemon</p>
-            <input onChange={this.search} ref="txt" />
+            <input onChange={this.search} ref="txt" placeholder="type pokemon name" />
             <button onClick={this.type} ></button>
             {this.type()}
           </div>
@@ -99,7 +106,7 @@ export default class pokemon extends Component {
                   <PokemonURL
                     url={e.url}
                     url2={url}
-                    getURL={this.getUrl}
+                    getURL={this.getUrl} z
                   />
                 </div>
               </div>
